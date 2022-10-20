@@ -1,0 +1,19 @@
+version: "3.0"
+services:
+  kcsadmin-srv:
+    image: goadmin-srv:latest
+    ports:
+      - "8000:8000"
+    networks:
+      - "kcsadmin"
+  kcsadmin-web:
+    image: goadmin-web:latest
+    ports:
+      - "8080:80"
+    networks:
+      - "kcsadmin"
+    depends_on:
+      - goadmin-srv
+
+networks:
+  kcsadmin:
